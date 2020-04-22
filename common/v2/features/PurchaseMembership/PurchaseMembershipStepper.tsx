@@ -53,8 +53,8 @@ const PurchaseMembershipStepper = () => {
               isERC20Tx(formData.asset) ? [approveTx, purchaseTx] : [purchaseTx]
             );
           },
-          formData.account,
-          formData.account.network
+          formData.account.network,
+          formData.account
         );
         handleUserInputFormSubmit(formData);
       }
@@ -105,7 +105,7 @@ const PurchaseMembershipStepper = () => {
 
   return (
     <GeneralStepper
-      onRender={goToNextStep => {
+      onRender={(goToNextStep) => {
         // Allows to execute code when state has been updated after MTX hook has run
         useEffect(() => {
           if (!canYield) return;
